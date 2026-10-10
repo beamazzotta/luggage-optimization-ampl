@@ -1,0 +1,15 @@
+
+reset;
+model modello.mod;
+data file.dat;
+
+# 1. ANALISI COSTO NOLEGGIO
+let costo_terza := 100; solve; printf "Scenario 1A (Costo 100)", Profitto, y;
+let costo_terza := 300; solve; printf "Scenario 1B (Costo 300)", Profitto, y;
+let costo_terza := 200; # Ripristino
+
+# 2. ANALISI CAPACITA PUNTO
+let capacita ["Punto"] := 170; solve; printf "Scenario 2A (Cap. 170)", Profitto, y;
+let capacita ["Punto"] := 80;  solve; printf "Scenario 2B (Cap. 80)", Profitto, y;
+let capacita ["Punto"] := 140; # Ripristino finale
+
